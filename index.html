@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bhargav Kacharla — Agentic Protocol Systems</title>
+  <meta name="description" content="Agentic portfolio concept for Bhargav Kacharla — protocol engineer building DeFi infrastructure, autonomous agents, smart contracts, and security-first systems." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070b18;
+      --bg2: #0a0f1c;
+      --panel: rgba(13, 17, 31, 0.74);
+      --panel2: rgba(18, 27, 45, 0.58);
+      --border: rgba(148, 163, 184, 0.14);
+      --border2: rgba(255,255,255,.06);
+      --text: #f8fafc;
+      --muted: #a7b0c0;
+      --faint: #64748b;
+      --cyan: #22e6ff;
+      --teal: #14f1d9;
+      --pink: #ff168c;
+      --amber: #f8b84e;
+      --violet: #8b5cf6;
+      --green: #27c93f;
+      --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      --display: 'Sora', 'Space Grotesk', system-ui, sans-serif;
+      --sans: 'Space Grotesk', system-ui, sans-serif;
+      --max: 1240px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: var(--sans);
+      background: var(--bg2);
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .noise, .mesh, .grid, .particles { position: fixed; inset: 0; pointer-events: none; }
+    .mesh {
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 62% 48% at 26% 42%, rgba(0, 229, 255, .105), transparent 70%),
+        radial-gradient(ellipse 45% 40% at 70% 58%, rgba(255, 22, 140, .075), transparent 72%),
+        radial-gradient(circle at 56% 18%, rgba(139, 92, 246, .08), transparent 38%),
+        linear-gradient(180deg, #0a0f1c 0%, #070b18 48%, #050813 100%);
+    }
+    .grid {
+      z-index: 1;
+      opacity: .24;
+      background-image: radial-gradient(rgba(34, 230, 255, .24) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(to bottom, black, transparent 82%);
+    }
+    .noise {
+      z-index: 2;
+      opacity: .045;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.65'/%3E%3C/svg%3E");
+    }
+    .particles {
+      z-index: 3;
+      opacity: .55;
+      background:
+        radial-gradient(circle at 14% 25%, var(--cyan) 0 2px, transparent 2.5px),
+        radial-gradient(circle at 29% 18%, var(--violet) 0 1.5px, transparent 2px),
+        radial-gradient(circle at 38% 62%, var(--cyan) 0 2px, transparent 2.5px),
+        radial-gradient(circle at 57% 36%, var(--pink) 0 1.5px, transparent 2px),
+        radial-gradient(circle at 76% 22%, var(--cyan) 0 2px, transparent 2.5px),
+        radial-gradient(circle at 86% 68%, var(--pink) 0 2px, transparent 2.5px),
+        linear-gradient(28deg, transparent 13.8%, rgba(34,230,255,.18) 14%, transparent 14.2% 100%),
+        linear-gradient(154deg, transparent 35.8%, rgba(139,92,246,.14) 36%, transparent 36.2% 100%),
+        linear-gradient(109deg, transparent 69.8%, rgba(255,22,140,.14) 70%, transparent 70.2% 100%);
+      animation: drift 16s ease-in-out infinite alternate;
+    }
+    @keyframes drift { from { transform: translate3d(-12px, -8px, 0) scale(1); } to { transform: translate3d(16px, 10px, 0) scale(1.02); } }
+
+    .page { position: relative; z-index: 4; }
+    .container { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
+
+    header.nav {
+      position: fixed;
+      left: 0; right: 0; top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(180deg, rgba(10,15,28,.82), rgba(10,15,28,.42));
+      border-bottom: 1px solid rgba(255,255,255,.035);
+    }
+    .nav-inner { height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .mark {
+      width: 34px; height: 34px; border-radius: 9px;
+      display: grid; place-items: center;
+      background: rgba(20, 241, 217, .10);
+      border: 1px solid rgba(34,230,255,.18);
+      color: var(--cyan);
+      font-family: var(--mono); font-size: 13px; font-weight: 700;
+      box-shadow: 0 0 28px rgba(0,229,255,.14);
+    }
+    .navlinks { display: flex; align-items: center; gap: 4px; }
+    .navlinks a { padding: 10px 14px; border-radius: 10px; color: #94a3b8; font-size: 14px; transition: .18s ease; }
+    .navlinks a:hover { background: rgba(255,255,255,.05); color: #fff; }
+    .navtools { display: flex; align-items: center; gap: 10px; }
+    .kbd, .status, .tinybtn {
+      height: 34px; display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid rgba(255,255,255,.07); background: rgba(255,255,255,.035);
+      color: #94a3b8; border-radius: 10px; padding: 0 11px; font-family: var(--mono); font-size: 11px;
+    }
+    .kbd span { border: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.045); border-radius: 5px; padding: 2px 5px; color: #cbd5e1; }
+    .status { border-color: rgba(248,184,78,.16); background: rgba(248,184,78,.04); color: rgba(248,184,78,.78); }
+    .status i { width: 7px; height: 7px; border-radius: 999px; background: rgba(248,184,78,.8); box-shadow: 0 0 14px rgba(248,184,78,.5); }
+    .cta { background: var(--cyan); color: #06101a !important; font-weight: 700; padding: 10px 15px !important; box-shadow: 0 0 26px rgba(34,230,255,.22); }
+
+    .hero { min-height: 100vh; display: flex; align-items: center; padding: 112px 0 80px; position: relative; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(390px, 520px); gap: 72px; align-items: center; }
+    .partners { margin-bottom: 34px; }
+    .label { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: .22em; color: #526078; text-transform: uppercase; margin-bottom: 11px; }
+    .partner-row { display: flex; flex-wrap: wrap; gap: 0; color: rgba(203,213,225,.82); font-size: 15px; font-weight: 500; }
+    .partner-row span:not(:last-child)::after { content: '·'; color: #334155; margin: 0 10px; }
+    .partner-row span:hover { color: var(--cyan); }
+    h1 { margin: 0; font-family: var(--display); font-size: clamp(54px, 8vw, 112px); line-height: .88; letter-spacing: -.065em; font-weight: 800; }
+    .gradient-text { display: block; background: linear-gradient(90deg, var(--cyan), var(--violet) 48%, var(--pink)); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: 0 0 48px rgba(34,230,255,.10); }
+    .hero-copy { max-width: 610px; margin: 28px 0 0; color: #a6b0c1; font-size: clamp(19px, 2vw, 24px); line-height: 1.55; letter-spacing: -.02em; }
+    .pills { display: flex; flex-wrap: wrap; gap: 9px; margin: 28px 0 0; }
+    .pill { border: 1px solid rgba(255,255,255,.075); background: rgba(255,255,255,.035); border-radius: 999px; padding: 7px 12px; color: #728197; font-family: var(--mono); font-size: 12px; }
+    .pill.hot { color: var(--cyan); border-color: rgba(34,230,255,.24); background: linear-gradient(90deg, rgba(34,230,255,.10), rgba(139,92,246,.06)); }
+    .actions { margin-top: 34px; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+    .primary { display: inline-flex; align-items: center; gap: 9px; min-height: 54px; padding: 0 24px; border-radius: 14px; background: linear-gradient(90deg, var(--pink), #ff4ca8); color: #0a0f1c; font-weight: 800; box-shadow: 0 0 34px rgba(255,22,140,.24); }
+    .secondary { color: #94a3b8; font-size: 15px; }
+    .secondary b { color: var(--cyan); }
+
+    .terminal {
+      border: 1px solid rgba(255,255,255,.075); border-radius: 22px; overflow: hidden;
+      background: rgba(9, 13, 24, .88); backdrop-filter: blur(20px);
+      box-shadow: 0 34px 100px rgba(0,0,0,.52), 0 0 70px rgba(34,230,255,.08);
+      position: relative;
+    }
+    .terminal:before { content: ''; position: absolute; inset: -1px; border-radius: 22px; padding: 1px; background: linear-gradient(135deg, rgba(34,230,255,.35), transparent 30%, rgba(255,22,140,.28)); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude; pointer-events: none; }
+    .bar { height: 46px; display: flex; align-items: center; gap: 12px; padding: 0 16px; border-bottom: 1px solid rgba(255,255,255,.045); }
+    .dots { display: flex; gap: 7px; }
+    .dots i { width: 11px; height: 11px; border-radius: 99px; display: block; }
+    .dots i:nth-child(1){ background:#ff5f56; }.dots i:nth-child(2){ background:#ffbd2e; }.dots i:nth-child(3){ background:#27c93f; }
+    .title { font-family: var(--mono); font-size: 12px; color: #64748b; }
+    .term-body { height: 430px; overflow: hidden; padding: 22px; font-family: var(--mono); font-size: 13px; line-height: 1.72; }
+    .json { color: #77849a; white-space: pre-wrap; margin: 0; }
+    .json .k { color: var(--pink); }.json .s { color: #c4b5fd; }.json .n { color: var(--cyan); }.json .b { color: var(--amber); }
+    .prompt { margin-top: 18px; color: var(--cyan); }
+    .output { color: #cbd5e1; margin-top: 8px; }
+    .log { color: #64748b; }.ok { color: var(--green); }.cursor { display: inline-block; width: 8px; height: 16px; background: var(--cyan); vertical-align: -3px; animation: blink 1s steps(2) infinite; box-shadow: 0 0 14px rgba(34,230,255,.6); }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .scroll { position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; color: #64748b; font-family: var(--mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
+    .scroll:after { content: ''; width: 1px; height: 38px; background: linear-gradient(var(--cyan), transparent); animation: pulse 1.4s infinite; }
+    @keyframes pulse { 50% { opacity: .3; transform: scaleY(.65); } }
+
+    section { padding: 96px 0; position: relative; }
+    .section-title { text-align: center; margin-bottom: 48px; }
+    .section-title h2 { margin: 0; font-family: var(--display); font-size: clamp(38px, 5vw, 66px); line-height: 1; letter-spacing: -.045em; }
+    .section-title p { margin: 18px auto 0; max-width: 760px; color: #9aa7bc; font-size: 21px; line-height: 1.55; }
+
+    .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .service { min-height: 430px; padding: 32px; border-radius: 28px; background: rgba(15, 23, 42, .70); backdrop-filter: blur(18px); border: 1px solid rgba(255,255,255,.065); box-shadow: 0 24px 80px rgba(0,0,0,.35); display: flex; flex-direction: column; justify-content: space-between; }
+    .service.featured { border-color: rgba(34,230,255,.62); box-shadow: 0 0 46px rgba(34,230,255,.13), 0 24px 80px rgba(0,0,0,.35); }
+    .icon { width: 82px; height: 82px; border-radius: 23px; display: grid; place-items: center; margin-bottom: 26px; background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.06); color: var(--cyan); box-shadow: inset 0 1px 0 rgba(255,255,255,.04); }
+    .icon svg { width: 38px; height: 38px; }
+    .service:nth-child(2) .icon, .service:nth-child(2) .link { color: var(--pink); }
+    .service:nth-child(3) .icon, .service:nth-child(3) .link { color: #a78bfa; }
+    .service h3 { margin: 0 0 16px; font-family: var(--display); font-size: 31px; line-height: 1.08; letter-spacing: -.035em; }
+    .service p { margin: 0; color: #a7b0c0; font-size: 18px; line-height: 1.62; }
+    .link { margin-top: 28px; font-weight: 700; color: var(--cyan); }
+
+    .proof-label { text-align: center; font-family: var(--mono); color: #708099; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; margin: 74px 0 24px; }
+    .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .proof { display: flex; align-items: center; gap: 18px; min-height: 128px; padding: 22px; border-radius: 24px; border: 1px solid rgba(120,150,180,.14); background: rgba(18,28,48,.58); transition: .2s ease; }
+    .proof:hover { border-color: rgba(34,230,255,.26); box-shadow: 0 0 40px rgba(34,230,255,.08); transform: translateY(-2px); }
+    .proof-icon { width: 58px; height: 58px; border-radius: 17px; display: grid; place-items: center; color: var(--cyan); background: linear-gradient(135deg, rgba(34,230,255,.12), rgba(139,92,246,.08)); }
+    .proof h3 { margin: 0; color: var(--cyan); font-family: var(--mono); letter-spacing: .03em; font-size: 24px; }
+    .proof p { margin: 5px 0 0; color: #7c8ba2; font-size: 14px; }
+    .tool-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-top: 28px; }
+    .tool { text-align: center; padding: 20px 10px; border-radius: 18px; border: 1px solid rgba(255,255,255,.06); background: rgba(255,255,255,.03); }
+    .tool b { display: block; color: #cbd5e1; margin-bottom: 6px; }.tool span { color: var(--cyan); font-family: var(--mono); font-size: 12px; }
+    .badges { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .badge { display: inline-flex; align-items: center; gap: 9px; padding: 12px 15px; border-radius: 999px; border: 1px solid rgba(255,255,255,.07); background: rgba(255,255,255,.035); color: #aab6c8; font-size: 14px; }
+    .badge i { color: var(--pink); font-style: normal; }
+
+    .work-row { display: grid; grid-template-columns: 1.05fr .95fr; gap: 20px; align-items: stretch; }
+    .work-card { border: 1px solid rgba(255,255,255,.07); background: rgba(9,13,24,.74); border-radius: 28px; padding: 34px; min-height: 420px; }
+    .work-card h3 { margin: 0 0 12px; font-family: var(--display); font-size: 38px; letter-spacing: -.04em; }
+    .work-card p { color: #a7b0c0; line-height: 1.65; font-size: 18px; }
+    .stack { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 24px; }
+    .stack span { font-family: var(--mono); color: #94a3b8; border: 1px solid rgba(255,255,255,.07); border-radius: 999px; padding: 7px 10px; font-size: 12px; }
+    .mini-term { margin-top: 26px; border: 1px solid rgba(34,230,255,.16); border-radius: 18px; padding: 17px; background: rgba(0,0,0,.24); font-family: var(--mono); color: #64748b; font-size: 12px; line-height: 1.8; }
+    .mini-term b { color: var(--cyan); font-weight: 500; }
+    .timeline { display: grid; gap: 12px; }
+    .time { border: 1px solid rgba(255,255,255,.06); background: rgba(255,255,255,.03); border-radius: 18px; padding: 18px; }
+    .time strong { display: flex; justify-content: space-between; gap: 12px; color: #e2e8f0; font-size: 17px; }.time strong em { color: #64748b; font-style: normal; font-family: var(--mono); font-size: 12px; }.time p { margin: 8px 0 0; color: #8b98ad; line-height: 1.55; }
+
+    .contact { padding-bottom: 120px; }
+    .contact-box { text-align: center; border: 1px solid rgba(255,255,255,.075); background: linear-gradient(135deg, rgba(34,230,255,.08), rgba(255,255,255,.03), rgba(255,22,140,.06)); border-radius: 32px; padding: 58px 24px; }
+    .contact h2 { margin: 0 auto; max-width: 820px; font-family: var(--display); font-size: clamp(40px,5vw,72px); line-height: 1; letter-spacing: -.055em; }
+    .contact p { max-width: 650px; color: #a7b0c0; margin: 20px auto 30px; font-size: 20px; line-height: 1.6; }
+
+    @media (max-width: 1050px) {
+      .hero-grid, .work-row { grid-template-columns: 1fr; }
+      .terminal { max-width: 650px; }
+      .services, .proof-grid { grid-template-columns: 1fr; }
+      .tool-grid { grid-template-columns: repeat(3,1fr); }
+      .navlinks { display: none; }
+    }
+    @media (max-width: 680px) {
+      .container { width: min(100% - 28px, var(--max)); }
+      .kbd, .status, .tinybtn { display: none; }
+      .hero { padding-top: 94px; }
+      .term-body { height: 390px; font-size: 12px; padding: 17px; }
+      .actions { align-items: stretch; flex-direction: column; }
+      .primary { justify-content: center; }
+      .tool-grid { grid-template-columns: repeat(2,1fr); }
+      .proof { align-items: flex-start; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+  </style>
+</head>
+<body>
+  <div class="mesh"></div><div class="grid"></div><div class="particles"></div><div class="noise"></div>
+  <div class="page">
+    <header class="nav">
+      <div class="container nav-inner">
+        <a href="#top" class="logo"><span class="mark">BK</span></a>
+        <nav class="navlinks" aria-label="Primary">
+          <a href="#services">Services</a><a href="#systems">Agents</a><a href="#work">Work</a><a href="#contact">Contact</a>
+        </nav>
+        <div class="navtools"><button class="kbd" aria-label="Open command palette">⌕ <span>⌘K</span></button><span class="status"><i></i>BUILD MODE</span><a class="tinybtn" href="https://github.com/bhargav55" target="_blank" rel="noreferrer">GH</a><a class="cta" href="#contact">Let's build</a></div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="partners">
+              <span class="label">Building with</span>
+              <div class="partner-row"><span>Solidity</span><span>OpenAI</span><span>Claude Code</span><span>Trail of Bits</span><span>Pyth</span><span>Stork</span></div>
+            </div>
+            <h1><span>Bhargav</span><span class="gradient-text">Builds Agents</span></h1>
+            <p class="hero-copy">While you're reading this, my agents are hunting contests, auditing contracts, updating exploit knowledge, and preparing protocol fixes. They don't wait. They don't forget. They just ship.</p>
+            <div class="pills"><span class="pill hot">Autonomous Audit System</span><span class="pill">Protocol Engineer</span><span class="pill">Perps Infrastructure</span><span class="pill">Solidity / Rust / Move</span></div>
+            <div class="actions"><a class="primary" href="#contact">Work with me</a><a class="secondary" href="#systems">See what I've shipped <b>↓</b></a></div>
+          </div>
+          <aside class="terminal" aria-label="Live agent terminal">
+            <div class="bar"><div class="dots"><i></i><i></i><i></i></div><span class="title">bhargav@agents ~ zsh</span></div>
+            <div class="term-body">
+<pre class="json">{
+  <span class="k">"name"</span>: <span class="s">"Bhargav Kacharla"</span>,
+  <span class="k">"role"</span>: <span class="s">"Protocol Engineer + Agentic Builder"</span>,
+  <span class="k">"current_build"</span>: <span class="s">"Nunchi.trade"</span>,
+  <span class="k">"agents_running"</span>: <span class="n">2</span>,
+  <span class="k">"cron_jobs"</span>: [
+    <span class="s">"immunefi-contest-hunter"</span>,
+    <span class="s">"exploit-kb-updater"</span>
+  ],
+  <span class="k">"systems"</span>: [<span class="s">"perps"</span>, <span class="s">"risk"</span>, <span class="s">"liquidations"</span>, <span class="s">"audits"</span>],
+  <span class="k">"availability"</span>: <span class="b">"select protocol + agentic work"</span>
+}</pre>
+              <div class="prompt">~ &gt; agents status</div>
+              <div class="output"><span class="ok">✓</span> auditing new smart contract repos<br><span class="ok">✓</span> learning missed exploit patterns<br><span class="ok">✓</span> monitoring perps/liquidation surfaces<br><span class="ok">✓</span> preparing security reports for Telegram</div>
+              <div class="prompt">~ &gt; echo $CURRENT_FOCUS</div>
+              <div class="output">Building DeFi systems that think, decide, and ship with security loops built in.</div>
+              <div class="prompt">~ &gt; <span class="cursor"></span></div>
+            </div>
+          </aside>
+        </div>
+        <div class="scroll">Scroll</div>
+      </section>
+
+      <section id="services">
+        <div class="container">
+          <div class="section-title"><span class="label">~/services &gt; running capability_scan</span><h2>What I do for protocols</h2><p>I combine protocol engineering, smart contract security, and autonomous agents into systems that keep improving after they ship.</p></div>
+          <div class="services">
+            <article class="service featured"><div><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="8"/><path d="M7 7l10 10M17 7L7 17"/></svg></div><h3>Autonomous Audit Agents</h3><p>Deploy agents that hunt contests, scan repos, run security workflows, collect missed exploit patterns, and report findings continuously.</p></div><a class="link" href="#contact">Build audit loop →</a></article>
+            <article class="service"><div><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M4 12h16M4 17h16"/><path d="M7 4v16M17 4v16"/></svg></div><h3>Protocol Engineering</h3><p>Design and implement perps, orderbooks, clearing houses, margin systems, liquidation flows, oracle integrations, and upgradeable contracts.</p></div><a class="link" href="#work">Explore builds →</a></article>
+            <article class="service"><div><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l8 4v5c0 5-3.4 8-8 9-4.6-1-8-4-8-9V7l8-4z"/><path d="M8.5 12.5l2.2 2.2 5-5"/></svg></div><h3>Security Architecture Review</h3><p>Review Solidity systems for accounting invariants, oracle correctness, liquidation safety, access control, upgrade risk, and exploit variants.</p></div><a class="link" href="#contact">Start review →</a></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="systems">
+        <div class="container">
+          <div class="proof-label">AGENTIC SYSTEMS I BUILT</div>
+          <div class="proof-grid">
+            <article class="proof"><div class="proof-icon">⌁</div><div><h3>Audit Hunter</h3><p>Autonomous contest discovery, repo clone, audit pass, Telegram report.</p></div></article>
+            <article class="proof"><div class="proof-icon">⌘</div><div><h3>Exploit KB</h3><p>Daily disclosure scrape, exploit pattern extraction, security memory updates.</p></div></article>
+            <article class="proof"><div class="proof-icon">λ</div><div><h3>Roko Runtime</h3><p>Agent network integration with OpenAI-compatible Hermes bridge.</p></div></article>
+          </div>
+          <div class="proof-label">SHIPPED WITH</div>
+          <div class="tool-grid"><div class="tool"><b>Nunchi</b><span>Perps</span></div><div class="tool"><b>Slither</b><span>Static analysis</span></div><div class="tool"><b>Trail of Bits</b><span>Security</span></div><div class="tool"><b>Claude Code</b><span>Agents</span></div><div class="tool"><b>Pyth / Stork</b><span>Oracles</span></div><div class="tool"><b>Telegram</b><span>Reports</span></div></div>
+          <div class="badges"><span class="badge"><i>⚡</i>24/7 audit automation</span><span class="badge"><i>🤖</i>Multi-agent systems builder</span><span class="badge"><i>⌘</i>Security-first protocol engineer</span></div>
+        </div>
+      </section>
+
+      <section id="work">
+        <div class="container work-row">
+          <article class="work-card"><span class="label">// featured work</span><h3>Nunchi.trade</h3><p>Architected an on-chain CLOB + AMM matching engine for perpetuals on yield-bearing assets. Built core Solidity surfaces: orderbook matching, Clearing House settlement, risk engine, liquidation flow, and oracle integration.</p><div class="stack"><span>Solidity</span><span>CLOB</span><span>AMM</span><span>Risk Engine</span><span>Pyth</span><span>Stork</span><span>Liquidations</span></div><div class="mini-term"><b>$ nunchi scan --surface=risk</b><br><span class="ok">✓</span> margin checks<br><span class="ok">✓</span> oracle paths<br><span class="ok">✓</span> liquidation eligibility<br><span class="ok">✓</span> agent execution hooks</div></article>
+          <aside class="work-card"><span class="label">// experience</span><div class="timeline"><div class="time"><strong>Nunchi.trade <em>2025 — now</em></strong><p>Protocol engineering, audits, agents, perps infrastructure.</p></div><div class="time"><strong>Novastro <em>2024 — 2025</em></strong><p>RWA tokenization, prediction markets, bridge aggregation, indexing.</p></div><div class="time"><strong>Xalts <em>2024</em></strong><p>ERC-4337 account abstraction and institutional tokenization.</p></div><div class="time"><strong>Oddz <em>2021 — 2022</em></strong><p>Options protocol, staking, automation, gasless transactions.</p></div></div></aside>
+        </div>
+      </section>
+
+      <section id="contact" class="contact">
+        <div class="container"><div class="contact-box"><span class="label">// work with me</span><h2>Let's build something that keeps working while you sleep.</h2><p>Protocol engineering, audit automation, agentic security workflows, and DeFi systems with real operational loops.</p><div class="actions" style="justify-content:center"><a class="primary" href="mailto:kacharlabhargav21@gmail.com">Start a project</a><a class="secondary" href="https://github.com/bhargav55" target="_blank" rel="noreferrer">GitHub <b>↗</b></a><a class="secondary" href="https://x.com/K_Bhargav21" target="_blank" rel="noreferrer">X <b>↗</b></a></div></div></div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
