@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bhargav Kacharla — Protocol Engineer</title>
-  <meta name="description" content="Portfolio concept for Bhargav Kacharla — protocol engineer building DeFi systems, perps infrastructure, smart contracts, risk engines, and autonomous on-chain agents." />
+  <meta name="description" content="Bhargav Kacharla — Senior Engineer focused on Blockchain and Agents, protocol infrastructure, smart contracts, risk systems, and autonomous on-chain agents." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -120,7 +120,8 @@
     .hero { min-height: 100vh; display: flex; align-items: center; padding: 116px 0 86px; position: relative; overflow: hidden; }
     .hero-grid { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(390px, 500px); gap: 72px; align-items: center; }
     .label { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: .22em; color: #526078; text-transform: uppercase; margin-bottom: 12px; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: #cbd5e1; border: 1px solid rgba(255,255,255,.075); background: rgba(255,255,255,.035); border-radius: 999px; padding: 8px 12px; font-family: var(--mono); font-size: 12px; margin-bottom: 26px; }
+    .eyebrow-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: #cbd5e1; border: 1px solid rgba(255,255,255,.075); background: rgba(255,255,255,.035); border-radius: 999px; padding: 8px 12px; font-family: var(--mono); font-size: 12px; }
     .dot { width: 7px; height: 7px; border-radius: 99px; background: var(--green); box-shadow: 0 0 16px rgba(39,201,63,.8); }
     h1 { margin: 0; font-family: var(--display); font-size: clamp(46px, 6.4vw, 82px); line-height: .94; letter-spacing: -.058em; font-weight: 800; max-width: 820px; }
     .gradient-text { background: linear-gradient(90deg, var(--cyan), var(--violet) 50%, var(--pink)); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: 0 0 48px rgba(34,230,255,.10); }
@@ -167,7 +168,7 @@
 
     .work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
     .project-card { min-height: 352px; border: 1px solid rgba(255,255,255,.075); border-radius: 26px; background: rgba(15,23,42,.68); backdrop-filter: blur(18px); padding: 28px; position: relative; overflow: hidden; box-shadow: 0 24px 80px rgba(0,0,0,.32); }
-    .project-card.featured { grid-column: span 2; min-height: 420px; display: grid; grid-template-columns: 1fr .86fr; gap: 28px; border-color: rgba(34,230,255,.28); }
+    .project-card.featured { grid-column: span 2; min-height: 320px; border-color: rgba(34,230,255,.28); }
     .project-card:after { content: ''; position: absolute; inset: auto -20% -45% 20%; height: 240px; background: radial-gradient(circle, rgba(34,230,255,.12), transparent 65%); pointer-events: none; }
     .project-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; margin-bottom: 24px; position: relative; z-index: 1; }
     .project-name { font-family: var(--display); font-size: 30px; font-weight: 800; letter-spacing: -.04em; }
@@ -176,11 +177,6 @@
     .project-desc { color: #a7b0c0; line-height: 1.72; font-size: 16px; margin: 22px 0 0; position: relative; z-index: 1; }
     .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; position: relative; z-index: 1; }
     .tag { font-family: var(--mono); font-size: 11px; color: #94a3b8; border: 1px solid rgba(255,255,255,.075); border-radius: 999px; padding: 6px 9px; background: rgba(255,255,255,.035); }
-    .system-map { border: 1px solid rgba(255,255,255,.065); background: rgba(0,0,0,.22); border-radius: 18px; padding: 18px; position: relative; z-index: 1; }
-    .node { border: 1px solid rgba(255,255,255,.075); border-radius: 14px; padding: 13px; margin-bottom: 10px; background: rgba(255,255,255,.035); }
-    .node small { display: block; color: #64748b; font-family: var(--mono); font-size: 10px; margin-bottom: 5px; }
-    .node strong { color: #dbeafe; font-size: 13px; font-weight: 600; }
-    .arrow { color: var(--cyan); font-family: var(--mono); font-size: 12px; text-align: center; margin: 4px 0 10px; }
 
     .systems-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 13px; }
     .system-card { border: 1px solid rgba(255,255,255,.06); background: rgba(15,23,42,.58); border-radius: 20px; padding: 20px; min-height: 168px; }
@@ -254,10 +250,14 @@
         <div class="container">
           <div class="hero-grid">
             <div>
-              <div class="eyebrow"><span class="dot"></span> Engineer, Blockchain and AI systems. Bangalore, India</div>
+              <div class="eyebrow-row">
+                <div class="eyebrow"><span class="dot"></span> Engineer</div>
+                <div class="eyebrow">Blockchain and Agents</div>
+                <div class="eyebrow">Bangalore, India</div>
+              </div>
               <h1>Bhargav <span class="gradient-text">Kacharla</span></h1>
               <p class="hero-copy">I design and ship smart contracts, matching engines, risk engines, liquidation systems, cross-chain infrastructure, oracle integrations, and autonomous AI agents.</p>
-              <div class="pills"><span class="pill hot">Perps</span><span class="pill">Options</span><span class="pill">Prediction Markets</span><span class="pill">Account Abstraction</span><span class="pill">Autonomous Agents</span><span class="pill">Solidity / Rust / TypeScript</span></div>
+              <div class="pills"><span class="pill hot">Perps</span><span class="pill">Derivative Options</span><span class="pill">RWA · ERC-3643</span><span class="pill">Account Abstraction</span><span class="pill">Autonomous Agents</span><span class="pill">Solidity / Rust / TypeScript</span></div>
               <div class="actions"><a class="primary" href="#work">View featured work →</a><a class="secondary" href="https://github.com/bhargav55" target="_blank" rel="noreferrer">GitHub</a><a class="secondary" href="mailto:kacharlabhargav21@gmail.com">Contact</a></div>
             </div>
 
@@ -265,21 +265,20 @@
               <div class="bar"><div class="dots"><i></i><i></i><i></i></div><span class="title">bhargav@protocol ~ zsh</span></div>
               <div class="term-body">
 <pre class="json">{
-  <span class="k">"name"</span>: <span class="s">"Bhargav Kacharla"</span>,
-  <span class="k">"role"</span>: <span class="s">"Blockchain / Backend Engineer"</span>,
+  <span class="k">"role"</span>: <span class="s">"Senior Engineer (Blockchain + Agents)"</span>,
   <span class="k">"current_build"</span>: <span class="s">"perps infrastructure"</span>,
   <span class="k">"surfaces"</span>: [<span class="s">"CLOB"</span>, <span class="s">"AMM"</span>, <span class="s">"Clearing House"</span>, <span class="s">"Risk Engine"</span>],
   <span class="k">"markets"</span>: [
     <span class="s">"perpetuals"</span>,
-    <span class="s">"option trading"</span>,
-    <span class="s">"prediction markets"</span>
+    <span class="s">"derivative options"</span>,
+    <span class="s">"RWA · ERC-3643"</span>
   ],
-  <span class="k">"agentic_commerce"</span>: [<span class="s">"ERC-8004"</span>, <span class="s">"ERC-8183"</span>, <span class="s">"on-chain autonomous agents"</span>]
+  <span class="k">"agents"</span>: [<span class="s">"agentic commerce"</span>, <span class="s">"trustless agents"</span>]
 }</pre>
                 <div class="prompt">~ &gt; protocol status</div>
                 <div class="output"><span class="ok">✓</span> perps matching engine<br><span class="ok">✓</span> liquidation + risk flows<br><span class="ok">✓</span> oracle integrations<br><span class="ok">✓</span> autonomous execution layer</div>
                 <div class="prompt">~ &gt; echo $CURRENT_FOCUS</div>
-                <div class="output">Building DeFi systems that are secure, automated, and production-ready.</div>
+                <div class="output">Building Blockchain and Agents that are secure, automated, and production-ready.</div>
                 <div class="prompt">~ &gt; <span class="cursor"></span></div>
               </div>
             </aside>
@@ -292,14 +291,14 @@
         <div class="container">
           <div class="section-head"><div><span class="label">01 / SYSTEMS</span><h2>Surfaces where I create leverage.</h2></div><p class="section-copy">A fast scan of the technical domains I can own end-to-end.</p></div>
           <div class="systems-grid">
-            <div class="system-card"><div class="system-icon">[01]</div><h3>Perps infrastructure</h3><p>CLOB, AMM, Clearing House, funding, margin, settlement, and liquidation flows.</p></div>
-            <div class="system-card"><div class="system-icon">[02]</div><h3>Smart contracts</h3><p>Upgradeable Solidity systems, protocol modules, access control, and storage-aware architecture.</p></div>
-            <div class="system-card"><div class="system-icon">[03]</div><h3>Risk engines</h3><p>Position accounting, oracle-driven checks, liquidation eligibility, and invariant thinking.</p></div>
-            <div class="system-card"><div class="system-icon">[04]</div><h3>Protocol agents</h3><p>Autonomous agents for liquidation, take-profit/stop-loss, monitoring, and job execution.</p></div>
-            <div class="system-card"><div class="system-icon">[05]</div><h3>Cross-chain infra</h3><p>Bridge aggregation, SDK/API surfaces, event indexing, and chain abstraction.</p></div>
-            <div class="system-card"><div class="system-icon">[06]</div><h3>Account abstraction</h3><p>ERC-4337, bundler infra, EVM networks, and institutional blockchain environments.</p></div>
-            <div class="system-card"><div class="system-icon">[07]</div><h3>Indexers</h3><p>Real-time blockchain event pipelines for analytics, trading metrics, and protocol stats.</p></div>
-            <div class="system-card"><div class="system-icon">[08]</div><h3>Security workflows</h3><p>Automated review loops, static analysis, audit prep, and exploit-pattern learning.</p></div>
+            <div class="system-card"><div class="system-icon">[01]</div><h3>Smart contracts</h3><p>Upgradeable Solidity systems, protocol modules, access control, and storage-aware architecture.</p></div>
+            <div class="system-card"><div class="system-icon">[02]</div><h3>Risk engines</h3><p>Position accounting, oracle-driven checks, liquidation eligibility, and invariant thinking.</p></div>
+            <div class="system-card"><div class="system-icon">[03]</div><h3>Protocol agents</h3><p>Autonomous agents for liquidation, take-profit/stop-loss, monitoring, and job execution.</p></div>
+            <div class="system-card"><div class="system-icon">[04]</div><h3>Cross-chain infra</h3><p>Bridge aggregation, SDK/API surfaces, event indexing, and chain abstraction.</p></div>
+            <div class="system-card"><div class="system-icon">[05]</div><h3>Account abstraction</h3><p>ERC-4337, bundler infra, EVM networks, and institutional blockchain environments.</p></div>
+            <div class="system-card"><div class="system-icon">[06]</div><h3>Indexers</h3><p>Real-time blockchain event pipelines for analytics, trading metrics, and protocol stats.</p></div>
+            <div class="system-card"><div class="system-icon">[07]</div><h3>Security workflows</h3><p>Automated review loops, static analysis, audit prep, and exploit-pattern learning.</p></div>
+            <div class="system-card"><div class="system-icon">[08]</div><h3>Agent orchestration</h3><p>Multi-agent runtimes, agent coordination layers, autonomous execution pipelines, and protocol automation systems.</p></div>
           </div>
         </div>
       </section>
@@ -308,31 +307,24 @@
       <section id="work">
         <div class="container">
           <div class="section-head">
-            <div><span class="label">02 / FEATURED WORK</span><h2>Protocol work presented as systems, not resume bullets.</h2></div>
-            <p class="section-copy">Each project is framed around the protocol surface, engineering complexity, and security context — not just job history.</p>
+            <div><span class="label">02 / FEATURED WORK</span><h2>Protocols built.</h2></div>
           </div>
 
           <div class="work-grid">
             <article class="project-card featured">
               <div>
-                <div class="project-top"><div><div class="project-name">Nunchi.trade</div><div class="project-title">Protocol Engineer · Perpetual derivatives</div></div><div class="year">2025 — Present</div></div>
-                <p class="project-desc">Architected an on-chain CLOB + AMM matching engine for perpetuals on yield-bearing assets. Built core Solidity surfaces for orderbook matching, Clearing House settlement, risk engine, liquidation flow, oracle integrations, and AI-native liquidation / TP-SL execution.</p>
-                <div class="tags"><span class="tag">Solidity</span><span class="tag">Perps</span><span class="tag">CLOB</span><span class="tag">AMM</span><span class="tag">Pyth</span><span class="tag">Stork</span><span class="tag">Agents</span></div>
-              </div>
-              <div class="system-map" aria-label="Nunchi system map">
-                <div class="node"><small>INPUT</small><strong>Orders · Positions · Oracle Prices</strong></div>
-                <div class="arrow">↓ validate / match</div>
-                <div class="node"><small>CORE</small><strong>Orderbook → Clearing House → Risk Engine</strong></div>
-                <div class="arrow">↓ monitor</div>
-                <div class="node"><small>AUTOMATION</small><strong>Liquidation agents · TP/SL jobs · Proofs</strong></div>
-                <div class="arrow">↓ settle</div>
-                <div class="node"><small>OUTPUT</small><strong>Funding exposure hedged on-chain</strong></div>
+                <div class="project-top"><div><div class="project-name">Nunchi.trade</div><div class="project-title">Senior Engineer (Blockchain + Agents)</div></div><div class="year">2025 — Present</div></div>
+                <p class="project-desc">Architected the perpetuals matching engine, risk engine, and liquidation flow in Solidity with Pyth and Stork oracle integrations. Worked with Quantstamp and Zellic on external audits of core protocol surfaces.</p>
+                <p class="project-desc">Shipped an AI-native CLI that lets autonomous agents execute liquidation, TP/SL, and risk-management jobs against live trading positions via LLM tool-calling bridged to on-chain transaction execution.</p>
+                <p class="project-desc">Designed and deployed an on-chain agent marketplace (ERC-8004 / ERC-8183) where agents register, complete protocol jobs, and submit proof-of-completion to claim incentives — a verifiable agent-payment infrastructure.</p>
+                <p class="project-desc">Authored in-house Claude Code skills to standardize engineering workflows across the team; codified repeatable patterns into agent-callable tools used in daily development.</p>
+                <div class="tags"><span class="tag">Solidity</span><span class="tag">Perps</span><span class="tag">CLOB</span><span class="tag">AMM</span><span class="tag">Pyth</span><span class="tag">Stork</span><span class="tag">ERC-8004</span><span class="tag">Agents</span></div>
               </div>
             </article>
 
-            <article class="project-card"><div class="project-top"><div><div class="project-name">Novastro</div><div class="project-title">Protocol Engineer</div></div><div class="year">2024 — 2025</div></div><p class="project-desc">Built RWA tokenization using ERC-3643, prediction market contracts, cross-protocol yield strategies, bridge aggregation across 15+ bridges, SDK/API surfaces, Aptos Move DEX work, Solana launchpad work, and real-time event indexing.</p><div class="tags"><span class="tag">ERC-3643</span><span class="tag">RWA</span><span class="tag">Move</span><span class="tag">Rust</span><span class="tag">Indexing</span></div></article>
-            <article class="project-card"><div class="project-top"><div><div class="project-name">Xalts</div><div class="project-title">Lead Blockchain Engineer</div></div><div class="year">2024</div></div><p class="project-desc">Implemented ERC-4337 account abstraction across Polygon, Avalanche subnet, and Hyperledger Besu. Developed in-house bundler infrastructure with Skandha and built smart contracts for asset tokenization for financial institutions.</p><div class="tags"><span class="tag">ERC-4337</span><span class="tag">Bundlers</span><span class="tag">Besu</span><span class="tag">GraphQL</span><span class="tag">MongoDB</span></div></article>
-            <article class="project-card"><div class="project-top"><div><div class="project-name">Oddz</div><div class="project-title">Blockchain Engineer</div></div><div class="year">2021 — 2022</div></div><p class="project-desc">Led Solidity development for options trading, staking, liquidity provisioning, gasless transactions, and automation frameworks using OpenZeppelin Defender, Biconomy, Chainlink Keepers, and Gelato.</p><div class="tags"><span class="tag">Options</span><span class="tag">Staking</span><span class="tag">Gelato</span><span class="tag">Chainlink</span><span class="tag">Defender</span></div></article>
+            <article class="project-card"><div class="project-top"><div><div class="project-name">Novastro</div><div class="project-title">Backend and Blockchain Engineer</div></div><div class="year">2024 — 2025</div></div><p class="project-desc">Developed RWA tokenization platform for real estate using ERC-3643 with on-chain compliance and identity registry for regulated token issuance.</p><p class="project-desc">Architected smart contracts and backend for Warpgate.pro, a decentralised exchange in Aptos Move compatible with Aptos Coin and the Fungible Asset standard.</p><p class="project-desc">Built Hatchy.fun token launchpad in Solana using Rust and the Anchor framework, enabling fair token distribution mechanisms.</p><p class="project-desc">Built a backend analytics system with subgraphs indexing via The Graph Protocol, enabling trading metrics, LP performance tracking, and protocol-wide statistics.</p><div class="tags"><span class="tag">ERC-3643</span><span class="tag">RWA</span><span class="tag">Move</span><span class="tag">Rust</span><span class="tag">Anchor</span><span class="tag">The Graph</span><span class="tag">Indexing</span></div></article>
+            <article class="project-card"><div class="project-top"><div><div class="project-name">Xalts</div><div class="project-title">Lead Blockchain Engineer</div></div><div class="year">2024</div></div><p class="project-desc">Implemented ERC-4337 account abstraction across Polygon, Avalanche subnet, and Hyperledger Besu for institutional-grade wallet experiences.</p><p class="project-desc">Developed in-house bundler infrastructure with Skandha, managing node and bundler operations across multiple blockchain networks.</p><p class="project-desc">Architected smart contracts for asset tokenization serving financial institutions, bridging on-chain assets with compliance requirements.</p><p class="project-desc">Built an in-house EVM indexer with TypeScript, GraphQL, and MongoDB for real-time protocol data ingestion and querying.</p><div class="tags"><span class="tag">ERC-4337</span><span class="tag">Skandha</span><span class="tag">Besu</span><span class="tag">Tokenization</span><span class="tag">GraphQL</span><span class="tag">MongoDB</span></div></article>
+            <article class="project-card"><div class="project-top"><div><div class="project-name">Oddz</div><div class="project-title">Blockchain Engineer</div></div><div class="year">2021 — 2022</div></div><p class="project-desc">Led smart contract development for Oddz protocol, an options trading platform with concentrated liquidity (Uniswap V3-style) for capital-efficient risk management, staking, and liquidity provisioning.</p><p class="project-desc">Implemented gasless transactions using OpenZeppelin Defender and Biconomy relayers, removing friction from the options trading experience.</p><p class="project-desc">Developed an automation framework for option expiry, staking reward distribution, and auto-adjusting pool risk parameters leveraging Chainlink Keepers and Gelato Network, creating a self-executing protocol.</p><div class="tags"><span class="tag">Options</span><span class="tag">Concentrated Liquidity</span><span class="tag">Gasless</span><span class="tag">Gelato</span><span class="tag">Chainlink</span><span class="tag">Defender</span></div></article>
           </div>
         </div>
       </section>
@@ -353,7 +345,7 @@
       <section id="security">
         <div class="container">
           <div class="security-panel">
-            <div><span class="label">04 / SECURITY POSTURE</span><h2>Security first.</h2><p>My protocol work starts with what can break: accounting invariants, oracle failure modes, liquidation edge cases, permission boundaries, upgrade paths, and how an attacker would chain them.</p></div>
+            <div><span class="label">04 / SECURITY POSTURE</span><h2>Security first.</h2><p>My protocol work starts with what can break: accounting invariants, oracle failure modes, liquidation edge cases, permission boundaries, and upgrade paths.</p></div>
             <div class="checklist">
               <div class="check"><b>✓</b><span>Worked with Quantstamp and Zellic on external audits for Nunchi contracts.</span></div>
               <div class="check"><b>✓</b><span>Use Slither and Trail of Bits tooling as part of development and review workflows.</span></div>
@@ -368,8 +360,8 @@
         <div class="container">
           <div class="section-head"><div><span class="label">05 / TIMELINE</span><h2>Experience arc.</h2></div></div>
           <div class="timeline">
-            <div class="timeline-item"><div class="timeline-top"><h3>Perps Protocol · Protocol Engineer</h3><div class="year">2025 — Present</div></div><p>Perpetual derivatives protocol for yield-bearing assets, including matching, settlement, risk, liquidation, oracle, security, and agent automation layers.</p></div>
-            <div class="timeline-item"><div class="timeline-top"><h3>Novastro · Protocol Engineer</h3><div class="year">2024 — 2025</div></div><p>RWA tokenization, prediction markets, cross-chain bridge aggregation, yield strategies, Move/Rust protocol work, and real-time indexing systems.</p></div>
+            <div class="timeline-item"><div class="timeline-top"><h3>Nunchi.trade · Senior Engineer</h3><div class="year">2025 — Present</div></div><p>Perpetual derivatives protocol for yield-bearing assets, including matching, settlement, risk, liquidation, oracle, security, and agent automation layers.</p></div>
+            <div class="timeline-item"><div class="timeline-top"><h3>Novastro · Backend and Blockchain Engineer</h3><div class="year">2024 — 2025</div></div><p>RWA tokenization with ERC-3643, cross-chain bridge aggregation, yield strategies, Move/Rust protocol work, and real-time indexing systems.</p></div>
             <div class="timeline-item"><div class="timeline-top"><h3>Xalts · Lead Blockchain Engineer</h3><div class="year">2024</div></div><p>Account abstraction and tokenization infrastructure for EVM and enterprise blockchain environments.</p></div>
             <div class="timeline-item"><div class="timeline-top"><h3>Oddz · Blockchain Engineer</h3><div class="year">2021 — 2022</div></div><p>Options protocol, staking, liquidity provisioning, relayers, and DeFi automation.</p></div>
             <div class="timeline-item"><div class="timeline-top"><h3>Earlier · Data / Software Engineering</h3><div class="year">2015 — 2021</div></div><p>Rakuten, OpenText, and Tata Consultancy Services — backend, data, and software engineering foundations.</p></div>
@@ -378,7 +370,7 @@
       </section>
 
       <section id="contact" class="contact">
-        <div class="container"><div class="contact-box"><span class="label">CONTACT</span><h2>Want to build a DeFi protocol?</h2><p>Reach out for protocol engineering, smart contract architecture, audit readiness, or autonomous agent systems for on-chain execution.</p><div class="actions" style="justify-content:center"><a class="primary" href="mailto:kacharlabhargav21@gmail.com">Email me</a><a class="secondary" href="https://github.com/bhargav55" target="_blank" rel="noreferrer">GitHub <b>↗</b></a><a class="secondary" href="https://x.com/K_Bhargav21" target="_blank" rel="noreferrer">X <b>↗</b></a><a class="secondary" href="https://www.linkedin.com/in/bhargav-kacharla-9a4b3552/" target="_blank" rel="noreferrer">LinkedIn <b>↗</b></a></div></div></div>
+        <div class="container"><div class="contact-box"><span class="label">CONTACT</span><h2>Want to build with Blockchain and Agents?</h2><p>Reach out for protocol engineering, smart contract architecture, audit readiness, or autonomous agent systems for on-chain execution.</p><div class="actions" style="justify-content:center"><a class="primary" href="mailto:kacharlabhargav21@gmail.com">Email me</a><a class="secondary" href="https://github.com/bhargav55" target="_blank" rel="noreferrer">GitHub <b>↗</b></a><a class="secondary" href="https://x.com/K_Bhargav21" target="_blank" rel="noreferrer">X <b>↗</b></a><a class="secondary" href="https://www.linkedin.com/in/bhargav-kacharla-9a4b3552/" target="_blank" rel="noreferrer">LinkedIn <b>↗</b></a></div></div></div>
       </section>
     </main>
   </div>
